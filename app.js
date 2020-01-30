@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const keyword = "ps4 本体";
+const url = "https://kakaku.com/"
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -8,7 +9,7 @@ const keyword = "ps4 本体";
   });
   const page = await browser.newPage();
   page.setViewport({width: 1200, height: 1200})
-  await page.goto('https://kakaku.com/');
+  await page.goto(url);
   await page.type('input[id=query]', keyword);
   await page.click('input[id=main_search_button]');
 //  await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
